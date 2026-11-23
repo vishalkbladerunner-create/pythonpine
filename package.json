@@ -1,0 +1,102 @@
+{
+  "name": "pythonpine",
+  "version": "2.0.1",
+  "description": "High-performance vectorized Pine Script indicators for ML and backtesting in JavaScript and TypeScript",
+  "author": "Vishal Kumar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalkbladerunner-create/pythonpine.git"
+  },
+  "homepage": "https://github.com/vishalkbladerunner-create/pythonpine#readme",
+  "bugs": {
+    "url": "https://github.com/vishalkbladerunner-create/pythonpine/issues"
+  },
+  "keywords": [
+    "technical-analysis",
+    "trading",
+    "indicators",
+    "pine-script",
+    "machine-learning",
+    "quantitative-finance",
+    "RSI",
+    "MACD",
+    "ATR",
+    "supertrend",
+    "bollinger-bands",
+    "financial-math",
+    "algorithmic-trading",
+    "typescript"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js"
+    },
+    "./momentum": {
+      "types": "./dist/momentum.d.ts",
+      "import": "./dist/momentum.js"
+    },
+    "./volatility": {
+      "types": "./dist/volatility.d.ts",
+      "import": "./dist/volatility.js"
+    },
+    "./trend": {
+      "types": "./dist/trend.d.ts",
+      "import": "./dist/trend.js"
+    },
+    "./normalize": {
+      "types": "./dist/normalize.d.ts",
+      "import": "./dist/normalize.js"
+    },
+    "./priceAction": {
+      "types": "./dist/priceAction.d.ts",
+      "import": "./dist/priceAction.js"
+    },
+    "./volume": {
+      "types": "./dist/volume.d.ts",
+      "import": "./dist/volume.js"
+    },
+    "./cycles": {
+      "types": "./dist/cycles.d.ts",
+      "import": "./dist/cycles.js"
+    },
+    "./statistical": {
+      "types": "./dist/statistical.d.ts",
+      "import": "./dist/statistical.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.cjs",
+    "build": "npm run build:esm && npm run build:cjs",
+    "test": "node --test test/*.test.js",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0"
+  }
+}
